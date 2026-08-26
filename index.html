@@ -316,6 +316,25 @@
   }
   .record-story b{color:var(--ink);font-weight:600}
 
+  /* Certificado embutido */
+  .record-cert{margin-top:64px;display:flex;flex-direction:column;align-items:center;text-align:center}
+  .cert-wrap{position:relative;width:min(430px,86vw)}
+  .cert-glow{position:absolute;inset:-34px;border-radius:32px;
+    background:radial-gradient(circle at 50% 38%, rgba(63,116,240,.32), transparent 66%);
+    filter:blur(42px);z-index:0}
+  .cert-frame{position:relative;z-index:1;display:block;border-radius:14px;overflow:hidden;
+    border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 70px rgba(2,8,28,.6);
+    transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease}
+  .cert-frame:hover{transform:translateY(-6px);box-shadow:0 44px 96px rgba(2,8,28,.72)}
+  .cert-frame img{display:block;width:100%;height:auto}
+  .cert-open{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;gap:9px;
+    padding:16px 12px 13px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#fff;
+    background:linear-gradient(180deg,transparent,rgba(4,10,28,.85));opacity:0;transition:opacity .3s ease}
+  .cert-frame:hover .cert-open{opacity:1}
+  .cert-open svg{width:15px;height:15px;flex:none}
+  .cert-cap{margin-top:18px;font-size:12px;color:var(--muted);letter-spacing:.02em;max-width:430px}
+  @media (max-width:640px){ .cert-open{opacity:1} }
+
   /* Treinos */
   .train-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .train-card{padding:30px 28px;border:1px solid var(--line);border-radius:14px;
@@ -460,6 +479,8 @@
   .light .dark-sec .record-photo .ph-frame{border-color:rgba(108,152,248,.4)}
   .light .dark-sec .record-badge{background:rgba(108,152,248,.12);border-color:rgba(108,152,248,.32);color:var(--accent-2)}
   .light .dark-sec .record-story{background:rgba(63,116,240,.08);border-color:rgba(255,255,255,.10);border-left-color:var(--accent)}
+  .light .dark-sec .btn-ghost{color:var(--ink);border-color:rgba(255,255,255,.16)}
+  .light .dark-sec .btn-ghost:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.04)}
 </style>
 </head>
 <body>
@@ -639,16 +660,16 @@
       </div>
       <div class="wrap">
         <div class="sec-head rv">
-          <div class="sec-eyebrow"><span class="dash"></span>Recorde</div>
-          <h2 class="sec-title">A dupla mais velha <span class="accent">da história no circuito ATP</span></h2>
-          <p class="sec-sub">Em 13 de maio de 2026, ao lado de Paulo Camargo, Lucas entrou em quadra por um torneio válido pelo ranking mundial da ATP e escreveu uma página inédita do tênis brasileiro.</p>
+          <div class="sec-eyebrow"><span class="dash"></span>Recorde Mundial</div>
+          <h2 class="sec-title">A dupla mais velha do mundo <span class="accent">a competir no tênis profissional</span></h2>
+          <p class="sec-sub">Em 13 de maio de 2026, ao lado de Paulo Camargo, Lucas entrou em quadra por um torneio válido pelo ranking mundial da ATP e cravou um recorde mundial — homologado pela ATLAS World Records e reconhecido internacionalmente.</p>
         </div>
 
         <div class="record-grid">
           <div class="record-photo rv rv-2" data-tilt>
             <div class="ph-frame"></div>
             <div class="ph-img">
-              <img src="dupla.jpg" alt="Paulo Camargo e Lucas Feltes Engel no torneio de Maringá, onde bateram o recorde da dupla mais velha a disputar o circuito profissional da ATP" loading="lazy">
+              <img src="dupla.jpg" alt="Paulo Camargo e Lucas Feltes Engel no torneio de Maringá, onde bateram o recorde mundial da dupla mais velha a disputar o circuito profissional da ATP" loading="lazy">
             </div>
             <p class="record-cap">Paulo Camargo e Lucas Feltes Engel no torneio de Maringá (PR), em 13 de maio de 2026.</p>
           </div>
@@ -656,7 +677,7 @@
           <div class="record-copy">
             <div class="record-badge rv rv-2">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>
-              Homologado pelo RankBrasil · Livro dos Recordes
+              Homologado pela ATLAS World Records · Nova York
             </div>
 
             <div class="record-ages">
@@ -674,13 +695,26 @@
 
             <div class="record-meta rv rv-4">
               <div class="rmeta"><span class="k">Data</span><span class="v">13 de maio de 2026</span></div>
-              <div class="rmeta"><span class="k">Local</span><span class="v">Maringá · Paraná</span></div>
-              <div class="rmeta"><span class="k">Torneio</span><span class="v">Oficial, válido pelo ranking mundial da ATP</span></div>
-              <div class="rmeta"><span class="k">Marca</span><span class="v">Dupla mais velha da história a disputar o circuito profissional da ATP</span></div>
+              <div class="rmeta"><span class="k">Local</span><span class="v">Maringá · Paraná · Brasil</span></div>
+              <div class="rmeta"><span class="k">Torneio</span><span class="v">ITF M15 · chave principal de duplas, válido pelo ranking da ATP</span></div>
+              <div class="rmeta"><span class="k">Idade somada</span><span class="v">98 anos, 3 meses e 6 dias</span></div>
+              <div class="rmeta"><span class="k">Marca</span><span class="v">Dupla mais velha da história do tênis profissional a competir em chave principal da ITF com pontos no ranking da ATP</span></div>
+              <div class="rmeta"><span class="k">Certificado</span><span class="v">ATLAS World Records · ID 20426073</span></div>
             </div>
 
             <p class="record-story rv rv-5">Mais do que um recorde, uma história de superação. Paulo voltou ao esporte profissional depois de um longo período afastado das quadras. Lucas enfrentou e <b>venceu uma batalha de anos contra o câncer</b> antes de conseguir retornar ao circuito. Os dois entraram em quadra juntos — e saíram para a história.</p>
+
           </div>
+        </div>
+
+        <div class="record-cert rv rv-3">
+          <div class="cert-wrap">
+            <div class="cert-glow" aria-hidden="true"></div>
+            <a href="certificado.pdf" target="_blank" rel="noopener" class="cert-frame" aria-label="Abrir certificado oficial em PDF">
+              <img src="certificado.jpg" alt="Certificado de recorde mundial da ATLAS World Records em nome de Paulo Camargo e Lucas Feltes Engel" loading="lazy">
+            </a>
+          </div>
+          <p class="cert-cap">Certificado oficial emitido pela ATLAS World Records · Nova York · ID 20426073</p>
         </div>
       </div>
     </section>
