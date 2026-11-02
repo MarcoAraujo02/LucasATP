@@ -17,6 +17,7 @@
     --ink:#eef3ff;
     --muted:#93a6cc;
     --line:rgba(255,255,255,.10);
+    --gold:#b27a1f;
     --display:'Archivo',system-ui,sans-serif;
     --ui:'Inter',system-ui,sans-serif;
   }
@@ -335,6 +336,47 @@
   .cert-cap{margin-top:18px;font-size:12px;color:var(--muted);letter-spacing:.02em;max-width:430px}
   @media (max-width:640px){ .cert-open{opacity:1} }
 
+  /* ---------- LIVRO ---------- */
+  .book-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .book-gallery{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:1fr 1fr;gap:14px}
+  .book-shot{
+    position:relative;margin:0;border-radius:14px;overflow:hidden;
+    border:1px solid #e5ebf5;background:#eef3fb;
+    box-shadow:0 18px 40px rgba(15,33,68,.12);
+  }
+  .book-shot.main{grid-row:1 / span 2;aspect-ratio:2/3}
+  .book-shot img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    transition:transform .7s cubic-bezier(.2,.7,.2,1);
+  }
+  .book-shot:hover img{transform:scale(1.04)}
+  .book-shot.main img{object-position:center 30%}
+  .book-shot.stack img{object-position:center 45%}
+  .book-shot.family img{object-position:center 20%}
+  .book-shot figcaption{
+    position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;
+    font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#fff;
+    background:linear-gradient(180deg,transparent,rgba(10,19,48,.78));
+  }
+  .book-copy .sec-title{font-size:clamp(28px,3.4vw,42px)}
+  .book-copy .sec-title .gold{color:var(--gold)}
+  .book-tagline{
+    margin-top:18px;font-family:var(--display);font-weight:700;font-size:14px;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--gold);
+  }
+  .book-copy .txt{margin-top:18px;color:var(--muted);font-size:16.5px;line-height:1.75}
+  .book-copy .txt strong{color:var(--ink);font-weight:600}
+  .book-copy .txt em{font-style:italic;color:var(--ink)}
+  .book-points{list-style:none;display:grid;gap:12px;margin-top:26px}
+  .book-points li{display:flex;gap:12px;align-items:flex-start;font-size:15px;font-weight:500;line-height:1.5;color:var(--ink)}
+  .book-points svg{width:18px;height:18px;flex:none;margin-top:2px;color:var(--accent-btn)}
+  .book-buy{
+    margin-top:34px;padding:24px 24px 26px;border-radius:14px;
+    border:1px solid #e5ebf5;border-left:2px solid var(--gold);background:#f8fafd;
+  }
+  .book-buy .k{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+  .book-buy p{margin:8px 0 20px;font-size:14.5px;line-height:1.6;color:var(--muted)}
+
   /* Treinos */
   .train-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .train-card{padding:30px 28px;border:1px solid var(--line);border-radius:14px;
@@ -375,6 +417,8 @@
     .about-grid,.career-grid,.train-grid{grid-template-columns:1fr;gap:32px}
     .record-grid{grid-template-columns:1fr;gap:38px}
     .record-photo{max-width:520px}
+    .book-grid{grid-template-columns:1fr;gap:44px}
+    .book-gallery{max-width:520px}
     .foot-grid{justify-content:flex-start}
     .win{grid-template-columns:auto 1fr;gap:16px;padding:20px 4px}
     .win-tag{grid-column:2;text-align:left;margin-top:4px}
@@ -385,10 +429,13 @@
     .record-ages{grid-template-columns:1fr}
     .rmeta{flex-direction:column;gap:4px}
     .record-photo .ph-frame{display:none}
+    .book-gallery{gap:10px}
+    .book-shot figcaption{font-size:9.5px;padding:24px 10px 9px}
+    .book-buy .btn{width:100%;justify-content:center}
   }
   @media (prefers-reduced-motion:reduce){
     .rv{opacity:1;transform:none;transition:none}
-    .career-card,.train-card,.win,.age-card{transition:none}
+    .career-card,.train-card,.win,.age-card,.book-shot img{transition:none}
   }
 
   /* ================= LIGHT THEME (tudo abaixo do hero) ================= */
@@ -498,6 +545,7 @@
           <li><a href="#carreira">Carreira</a></li>
           <li><a href="#vitorias">Vitórias</a></li>
           <li><a href="#recorde">Recorde</a></li>
+          <li><a href="#livro">Livro</a></li>
           <li><a href="#treinos">Treinos</a></li>
         </ul>
         <a href="#agendar" class="nav-cta">Agendar aula</a>
@@ -719,6 +767,51 @@
       </div>
     </section>
 
+    <!-- ============ LIVRO ============ -->
+    <section class="section" id="livro">
+      <div class="wrap">
+        <div class="book-grid">
+          <div class="book-gallery rv">
+            <figure class="book-shot main">
+              <img src="fotoslivro2.jpg" data-base="fotoslivro2" alt="Lucas Feltes Engel segurando o livro Continuar quando vencer deixa de ser o objetivo no evento de lançamento" loading="lazy">
+              <figcaption>Noite de lançamento</figcaption>
+            </figure>
+            <figure class="book-shot stack">
+              <img src="fotoslivro.jpg" data-base="fotoslivro" alt="Exemplares do livro Continuar quando vencer deixa de ser o objetivo empilhados sobre a mesa" loading="lazy">
+            </figure>
+            <figure class="book-shot family">
+              <img src="fotoslivro3.jpg" data-base="fotoslivro3" alt="Lucas Feltes Engel com a família no lançamento do livro" loading="lazy">
+              <figcaption>Com a família</figcaption>
+            </figure>
+          </div>
+
+          <div class="book-copy">
+            <div class="sec-eyebrow rv"><span class="dash"></span>O livro · Lançamento</div>
+            <h2 class="sec-title rv rv-2"><span class="gold">Continuar</span> quando vencer deixa de ser o <span class="accent">objetivo</span></h2>
+            <p class="book-tagline rv rv-2">Uma história real de fé, superação e propósito</p>
+
+            <p class="txt rv rv-3">Lucas lançou seu livro e, nele, conta <strong>a própria história</strong>: os anos de estrada no circuito profissional, a batalha contra o câncer, a volta às quadras e a vida de hoje como treinador e pai.</p>
+            <p class="txt rv rv-3">Mais do que tênis — um livro sobre <em>escolhas, quedas e a decisão de continuar</em>, mesmo quando vencer já não é o que mais importa.</p>
+
+            <ul class="book-points rv rv-4">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Uma história real, contada pelo próprio Lucas</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Do circuito ATP à superação fora das quadras</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Escrito por um ex-atleta profissional, treinador e pai</li>
+            </ul>
+
+            <div class="book-buy rv rv-5">
+              <div class="k">Como comprar</div>
+              <p>As vendas são feitas pelo WhatsApp. Mande uma mensagem e combine o pedido e a entrega direto com o Lucas.</p>
+              <a href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%20Lucas!%20Quero%20comprar%20o%20livro%20%22Continuar%20quando%20vencer%20deixa%20de%20ser%20o%20objetivo%22." class="btn btn-primary" data-magnetic>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2Zm5.9 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.8-.6-3-1.3-5-4.4-5.1-4.6-.2-.2-1.3-1.7-1.3-3.2 0-1.5.8-2.3 1.1-2.6.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5l.9 2.1c.1.2.1.4 0 .6l-.4.6c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l.9-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.4Z"/></svg>
+                Comprar pelo WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ TREINOS ============ -->
     <section class="section section-alt" id="treinos">
       <div class="wrap">
@@ -791,6 +884,7 @@
           <a href="#carreira">Carreira</a>
           <a href="#vitorias">Vitórias</a>
           <a href="#recorde">Recorde</a>
+          <a href="#livro">Livro</a>
           <a href="#treinos">Treinos</a>
           <a href="#agendar">Agendar</a>
         </div>
@@ -801,6 +895,18 @@
 
 <script>
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Fotos do livro: tenta as extensões mais comuns até achar o arquivo
+  document.querySelectorAll('img[data-base]').forEach(img=>{
+    const exts = ['jpg','jpeg','png','webp','JPG','JPEG','PNG'];
+    let i = 0;
+    const next = ()=>{
+      if(i < exts.length){ img.src = img.dataset.base + '.' + exts[i++]; }
+      else { img.onerror = null; img.style.visibility = 'hidden'; }
+    };
+    img.onerror = next;
+    if(img.complete && img.naturalWidth === 0) next();
+  });
 
   // Tilt na foto do hero
   const photo = document.getElementById('photo');
